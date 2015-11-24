@@ -24,6 +24,8 @@ public class Main extends Application {
 			primaryStage.setOnCloseRequest((e) -> {
 				System.exit(0);
 			});
+			
+			primaryStage.setTitle("JavaFX Media Player Demo");
 
 		} catch (Exception e) {
 			e.printStackTrace();

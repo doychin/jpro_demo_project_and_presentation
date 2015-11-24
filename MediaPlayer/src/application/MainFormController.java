@@ -94,7 +94,7 @@ public class MainFormController implements Initializable {
 	}
 
 	public void about() {
-
+		AboutDialog.showDialog();
 	}
 
 	public void play() {
@@ -227,6 +227,9 @@ public class MainFormController implements Initializable {
 		playMenu.disableProperty().bind(bb);
 		stopMenu.disableProperty().bind(bb);
 		pauseMenu.disableProperty().bind(bb);
+
+		playSlider.disableProperty().bind(bb);
+		volumeSlider.disableProperty().bind(bb);
 	}
 
 	public void openFile() {
