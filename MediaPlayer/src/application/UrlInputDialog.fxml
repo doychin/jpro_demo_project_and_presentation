@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="44.0" prefWidth="664.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.URLInputController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="URL:" AnchorPane.topAnchor="14.0" />
+      <ComboBox fx:id="urlCombo" editable="true" layoutX="38.0" layoutY="10.0" prefHeight="25.0" prefWidth="553.0" promptText="Plase eneter URL" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="10.0" />
+   </children>
+</AnchorPane>

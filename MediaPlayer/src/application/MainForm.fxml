@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.input.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="311.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainFormController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open File ...">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="O" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#openUrl" text="Open URL ...">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="U" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <Menu fx:id="recentMenu" mnemonicParsing="false" text="Open Recent ..." />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+              <MenuItem mnemonicParsing="false" onAction="#closeApplication" text="Exit">
+                     <accelerator>
+                        <KeyCodeCombination alt="ANY" code="X" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Player">
+              <items>
+                <MenuItem fx:id="playMenu" mnemonicParsing="false" onAction="#play" text="Play">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="P" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="pauseMenu" mnemonicParsing="false" onAction="#pause" text="Pause">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="SPACE" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="stopMenu" mnemonicParsing="false" onAction="#stop" text="Stop">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <AnchorPane style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane prefHeight="222.0" prefWidth="396.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="200.0" onMouseClicked="#switchScreenSize" />
+                  <Label fx:id="lblVolume" text="Volume:" textAlignment="RIGHT" textFill="WHITE" visible="false" StackPane.alignment="TOP_RIGHT">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ProgressIndicator fx:id="progress" maxWidth="100.0" prefHeight="50.0" prefWidth="50.0" visible="false" StackPane.alignment="CENTER">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                  </ProgressIndicator>
+               </children>
+            </StackPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <right>
+      <Slider fx:id="volumeSlider" majorTickUnit="10.0" minorTickCount="1" orientation="VERTICAL" showTickMarks="true" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <HBox BorderPane.alignment="CENTER">
+               <children>
+                  <ToggleButton fx:id="btnPlay" mnemonicParsing="false" onAction="#play" textOverrun="CLIP">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="player" />
+                     </toggleGroup>
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@play.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnPause" mnemonicParsing="false" onAction="#pause" toggleGroup="$player">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@pause.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></ToggleButton>
+                  <Button fx:id="btnStop" mnemonicParsing="false" onAction="#stop">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@playback_stop_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+               </children>
+            </HBox>
+         </center>
+         <top>
+            <Slider fx:id="playSlider" showTickMarks="true" snapToTicks="true" BorderPane.alignment="CENTER" />
+         </top>
+      </BorderPane>
+   </bottom>
+</BorderPane>
